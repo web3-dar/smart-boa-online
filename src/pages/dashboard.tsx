@@ -71,6 +71,16 @@ const [showViewModal, setShowViewModal] = useState(false);
     }, 2000);
   };
 
+   const handleLogout2 = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      
+      setIsLoading(false);
+      navigate('/dashboard');
+    }, 2000);
+  };
+
+
   if (isLoading) {
     return (
            <div className="flex flex-col items-center justify-center min-h-screen z-10 ">
@@ -131,7 +141,7 @@ const [showViewModal, setShowViewModal] = useState(false);
         <div className="flex flex-col items-center cursor-pointer hover:text-red-800">
           <button >
   <FaBars className="text-xl" />
-          <span className="text-[10px] text-gray-600">Menu</span>
+          <span  onClick={handleLogout2} className="text-[10px] text-gray-600">Menu</span>
 
           </button>
         
@@ -211,7 +221,7 @@ const [showViewModal, setShowViewModal] = useState(false);
         {/* Top Right Icons */}
         <div className="flex gap-5 text-gray-500 text-xl items-center">
           {/* Inbox */}
-          <div className="relative flex flex-col items-center cursor-pointer hover:text-red-800">
+          <div  onClick={handleLogout2} className="relative flex flex-col items-center cursor-pointer hover:text-red-800">
             <FaEnvelope />
             <span className="absolute -top-1 right-0 bg-blue-500 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">
               3
@@ -219,7 +229,7 @@ const [showViewModal, setShowViewModal] = useState(false);
             <span className="text-[10px] mt-1">Inbox</span>
           </div>
           {/* Products */}
-          <div className="flex flex-col items-center cursor-pointer hover:text-red-800">
+          <div onClick={handleLogout2} className="flex flex-col items-center cursor-pointer hover:text-red-800">
             <FaShoppingCart />
             <span className="text-[10px] mt-1">Products</span>
           </div>
@@ -239,7 +249,7 @@ const [showViewModal, setShowViewModal] = useState(false);
         <div className="text-red-700 text-center border-b-2 border-red-700  m-auto font-medium  py-2 px-4 text-[15px]">
           Accounts
         </div>
-        <div className="text-gray-500 text-center m-auto py-2 px-4 text-[15px]">Dashboard</div>
+        <div onClick={handleLogout2} className="text-gray-500 text-center m-auto py-2 px-4 text-[15px] cursor-pointer">Dashboard</div>
       </div>
 
       {/* Search Bar */}
@@ -284,7 +294,7 @@ const [showViewModal, setShowViewModal] = useState(false);
         </div>
 
         <div className="flex justify-between items-center pt-2">
-          <p className="font-medium">My Rewards</p>
+          <p onClick={handleLogout2}  className="font-medium">My Rewards</p>
           <span className="text-xl text-gray-400">&gt;</span>
         </div>
       </div>
@@ -309,7 +319,7 @@ const [showViewModal, setShowViewModal] = useState(false);
             </button>
           </div>
         </div>
-        <div className="text-center text-blue-800 text-sm py-2  font-bold border-t cursor-pointer">
+        <div  onClick={handleLogout2} className="text-center text-blue-800 text-sm py-2  font-bold border-t cursor-pointer">
           OPEN NEW ACCOUNT
         </div>
       </div>
@@ -328,7 +338,7 @@ const [showViewModal, setShowViewModal] = useState(false);
             </button>
           </div>
         </div>
-        <div className="text-center text-blue-800 text-sm py-2  font-bold border-t cursor-pointer">
+        <div onClick={handleLogout2} className="text-center text-blue-800 text-sm py-2  font-bold border-t cursor-pointer">
           OPEN NEW ACCOUNT
         </div>
       </div>
@@ -336,7 +346,7 @@ const [showViewModal, setShowViewModal] = useState(false);
       {/* Open Savings CTA */}
       <div className="bg-red-600 text-white rounded-xl shadow p-4 space-y-1 text-center">
         <p className="text-lg font-medium">Open a savings account</p>
-        <p className="underline text-sm cursor-pointer">Open an account &gt;</p>
+        <p onClick={handleLogout2}  className="underline text-sm cursor-pointer">Open an account &gt;</p>
       </div>
     </div>
 
@@ -356,7 +366,7 @@ const [showViewModal, setShowViewModal] = useState(false);
           Get a comprehensive look at your day-to-day business.
         </p>
         <div className="mt-4 border-t pt-3">
-          <p className="text-blue-800 text-sm  text-center font-bold cursor-pointer">VIEW CASH FLOW</p>
+          <p onClick={handleLogout2} className="text-blue-800 text-sm  text-center font-bold cursor-pointer">VIEW CASH FLOW</p>
         </div>
       </div>
   <div className="bg-white rounded-xl shadow p-8  mb-[100px] px-5 py-3">
@@ -365,7 +375,7 @@ const [showViewModal, setShowViewModal] = useState(false);
          Access your Personal and Small Business accounts from this page.
         </p>
         <div className="mt-4 border-t pt-3">
-          <p className="text-blue-800 text-sm  text-center font-bold cursor-pointer">CREATE LINK</p>
+          <p onClick={handleLogout2} className="text-blue-800 text-sm  text-center font-bold cursor-pointer">CREATE LINK</p>
         </div>
       </div>
  

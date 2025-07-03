@@ -3,13 +3,18 @@ import { FaEnvelope, FaShoppingCart, FaSignOutAlt, FaBars } from "react-icons/fa
 import {  TbZzz, TbWorld } from "react-icons/tb";
 import { FaMoneyBillWave } from "react-icons/fa6";
 import StickyBottomNav from "../components/stickyNavv";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import lol from '../assets/logo.png'
 // import BottomNav from "./stickyNav";
 
 const TransferOptions: React.FC = () => {
  const [userName, setUserName] = useState<string>("");
 const [userAmount, setUserAmount] = useState<number>(0);
+ const [isLoading, setIsLoading] = useState(false);
  
+  const navigate = useNavigate();
+
+
       useEffect(() => {
     const storedUser = localStorage.getItem("loggedInUser");
     if (storedUser) {
@@ -22,27 +27,63 @@ const [userAmount, setUserAmount] = useState<number>(0);
 
 
   
+ const handleLogout = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      localStorage.clear();
+      sessionStorage.clear();
+      setIsLoading(false);
+      navigate('/');
+    }, 2000);
+  };
+ const handleLogout2 = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      
+      setIsLoading(false);
+      navigate('/dashboard');
+    }, 2000);
+  };
+
+  if (isLoading) {
+    return (
+           <div className="flex flex-col items-center justify-center min-h-screen z-10 ">
+  <div className="bg-white   p-6 w-80 flex flex-col items-center">
+    <img
+      src={lol} // replace with your actual image path
+      alt="Loading illustration"
+      className="w-'200px h-32 object-contain mb-4"
+    />
+    
+    <div className="flex items-center space-x-2">
+      <div className="w-4 h-4 border-2 border-blue-500 border-dotted rounded-full animate-spin"></div>
+      {/* <p className="text-sm text-gray-600">Loading...</p> */}
+    </div>
+  </div>
+</div>
+    );
+  }
 
 
 
   return (
     <div className="max-w-sm mx-auto p-4 bg-white min-h-screen space-y-4 font-sans">
       {/* Top Menu */}
-      <div className="flex justify-between items-center text-xs text-gray-600">
-        <div className="flex items-center space-x-1">
+      <div className="flex justify-between items-center text-xs text-gray-600 ">
+        <div onClick={handleLogout2} className="flex items-center space-x-1 hover:text-red-800">
           <FaBars />
           <span>Menu</span>
         </div>
         <div className="flex items-center space-x-6">
-          <div className="flex items-center space-x-1">
+          <div onClick={handleLogout2} className="flex items-center space-x-1 hover:text-red-800">
             <FaEnvelope />
             <span>Inbox</span>
           </div>
-          <div className="flex items-center space-x-1">
+          <div onClick={handleLogout2} className="flex items-center space-x-1 hover:text-red-800">
             <FaShoppingCart />
             <span>Products</span>
           </div>
-          <div className="flex items-center space-x-1">
+          <div onClick={handleLogout}  className="flex items-center space-x-1 hover:text-red-800">
             <FaSignOutAlt />
             <span>Log Out</span>
           </div>
