@@ -36,8 +36,10 @@ const Dashboard = () => {
   // const [userEmail, setUserEmail] = useState<string>("");
   const [userLastName, setLastName] = useState<string>("");
   const [useMidname, setMiddleName] = useState<string>("");
-  // const [AcctNum, setAcctNumber] = useState<string>("");
+  const [AcctNum, setAcctNumber] = useState<string>("");
   const [isLoading, setIsLoading] = useState(false);
+  
+const [showViewModal, setShowViewModal] = useState(false);
 
 
   console.log(userImage,subType,userLastName,useMidname)
@@ -55,7 +57,7 @@ const Dashboard = () => {
       setAccountType(user.accountType || "Nll");
       setSubType(user.accountSubType || "");
       // setUserEmail(user.email || "");
-      // setAcctNumber(user.accountNumber || "");
+      setAcctNumber(user.accountNumber || "");
     }
   }, []);
 
@@ -131,6 +133,77 @@ const Dashboard = () => {
           <span className="text-[10px] text-gray-600">Menu</span>
         </div>
 
+
+    {showViewModal && (
+  <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center px-4">
+    <div className="bg-white w-full max-w-2xl p-6 rounded-md shadow-xl relative">
+      <button
+        onClick={() => setShowViewModal(false)}
+        className="absolute top-2 right-4 text-gray-500 text-xl hover:text-black"
+      >
+        &times;
+      </button>
+
+      <h2 className="text-xl font-bold text-center mb-6">Bank Of America</h2>
+
+      <div className="mb-6 text-sm text-gray-700">
+        <p>Welcome, {userName} {userLastName}</p>
+        <p>Account Number: <strong>{AcctNum}</strong></p>
+        <p>Routine Number: <strong>233293939</strong></p>
+        <p>Account Balance: <strong>${userAmount.toLocaleString(undefined, { minimumFractionDigits: 2 })}</strong></p>
+        <p>Last Deposit Date: <strong>July 3, 2024</strong></p>
+        <p>Deposit Reference Number: <strong>2234-WN7823490</strong></p>
+        <p className="text-green-600 font-semibold mt-2">Status: Funds Available for Payout</p>
+      </div>
+
+      <div className="overflow-x-auto">
+        {/* <table className="w-full border text-sm text-left mb-6">
+          <thead>
+            <tr className="bg-gray-100 text-gray-700">
+              <th className="border px-3 py-2">Date</th>
+              <th className="border px-3 py-2">Type</th>
+              <th className="border px-3 py-2">Amount</th>
+              <th className="border px-3 py-2">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+           
+            <tr>
+              <td className="border px-3 py-2">2025-07-03</td>
+              <td className="border px-3 py-2">Service Fee</td>
+              <td className="border px-3 py-2">$45.00</td>
+              <td className="border px-3 py-2">Success</td>
+            </tr>
+            <tr>
+              <td className="border px-3 py-2">2025-07-03</td>
+              <td className="border px-3 py-2">Tax</td>
+              <td className="border px-3 py-2">$30.00</td>
+              <td className="border px-3 py-2">Success</td>
+            </tr>
+            <tr>
+              <td className="border px-3 py-2">2025-07-03</td>
+              <td className="border px-3 py-2">Maintenance</td>
+              <td className="border px-3 py-2">$100.00</td>
+              <td className="border px-3 py-2">Success</td>
+            </tr>
+
+             <tr>
+              <td className="border px-3 py-2">2025-07-03</td>
+              <td className="border px-3 py-2">Deposit</td>
+              <td className="border px-3 py-2">$1,000,000.00</td>
+              <td className="border px-3 py-2">Success</td>
+            </tr>
+          </tbody>
+        </table> */}
+      </div>
+
+      {/* <p className="text-xs text-gray-500 text-center">
+        This dashboard reflects the most current status of your winnings under the Camellia K Talachi Mega Bonus Program.<br />
+        Your deposit has been securely processed by CKT National Reserve. If you have any questions or would like to request a payout, please contact your claim specialist directly.
+      </p> */}
+    </div>
+  </div>
+)}
         {/* Top Right Icons */}
         <div className="flex gap-5 text-gray-500 text-xl items-center">
           {/* Inbox */}
@@ -227,7 +300,7 @@ const Dashboard = () => {
   }).format(userAmount)}
 </p>
 
-            <button className="text-sm text-blue-800 font-semibold bg-gray-100 px-3 py-1 rounded-full">
+            <button    onClick={() => setShowViewModal(true)} className="text-sm text-blue-800 font-semibold bg-gray-100 px-3 py-1 rounded-full">
               VIEW
             </button>
           </div>
@@ -246,7 +319,7 @@ const Dashboard = () => {
 
 </p>
 
-            <button className="text-sm text-blue-800 font-semibold bg-gray-100 px-3 py-1 rounded-full">
+            <button   onClick={() => setShowViewModal(true)}  className="text-sm text-blue-800 font-semibold bg-gray-100 px-3 py-1 rounded-full">
               VIEW
             </button>
           </div>
