@@ -128,9 +128,13 @@ const [showViewModal, setShowViewModal] = useState(false);
       {/* Top Navigation */}
       <div className="flex justify-between items-center px-4 py-2 border-b">
         {/* Hamburger */}
-        <div className="flex flex-col items-center cursor-pointer">
-          <FaBars className="text-xl" />
+        <div className="flex flex-col items-center cursor-pointer hover:text-red-800">
+          <button >
+  <FaBars className="text-xl" />
           <span className="text-[10px] text-gray-600">Menu</span>
+
+          </button>
+        
         </div>
 
 
@@ -207,7 +211,7 @@ const [showViewModal, setShowViewModal] = useState(false);
         {/* Top Right Icons */}
         <div className="flex gap-5 text-gray-500 text-xl items-center">
           {/* Inbox */}
-          <div className="relative flex flex-col items-center cursor-pointer hover:text-black">
+          <div className="relative flex flex-col items-center cursor-pointer hover:text-red-800">
             <FaEnvelope />
             <span className="absolute -top-1 right-0 bg-blue-500 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">
               3
@@ -215,12 +219,12 @@ const [showViewModal, setShowViewModal] = useState(false);
             <span className="text-[10px] mt-1">Inbox</span>
           </div>
           {/* Products */}
-          <div className="flex flex-col items-center cursor-pointer hover:text-black">
+          <div className="flex flex-col items-center cursor-pointer hover:text-red-800">
             <FaShoppingCart />
             <span className="text-[10px] mt-1">Products</span>
           </div>
           {/* Log Out */}
-          <div onClick={handleLogout} className="flex flex-col items-center cursor-pointer hover:text-black">
+          <div onClick={handleLogout} className="flex flex-col items-center cursor-pointer hover:text-red-800">
             <FaSignOutAlt />
             <span className="text-[10px] mt-1" >Log Out</span>
           </div>
