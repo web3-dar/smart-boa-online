@@ -223,9 +223,9 @@ const [showViewModal, setShowViewModal] = useState(false);
           {/* Inbox */}
           <div  onClick={handleLogout2} className="relative flex flex-col items-center cursor-pointer hover:text-red-800">
             <FaEnvelope />
-            <span className="absolute -top-1 right-0 bg-blue-500 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">
+            {/* <span className="absolute -top-1 right-0 bg-blue-500 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">
               3
-            </span>
+            </span> */}
             <span className="text-[10px] mt-1">Inbox</span>
           </div>
           {/* Products */}
