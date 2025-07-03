@@ -138,12 +138,12 @@ const [showViewModal, setShowViewModal] = useState(false);
       {/* Top Navigation */}
       <div className="flex justify-between items-center px-4 py-2 border-b">
         {/* Hamburger */}
-        <div className="flex flex-col items-center cursor-pointer hover:text-red-800">
-          <button >
+        <div onClick={handleLogout2} className="flex flex-col items-center cursor-pointer hover:text-red-800">
+         
   <FaBars className="text-xl" />
-          <span  onClick={handleLogout2} className="text-[10px] text-gray-600">Menu</span>
+          <span   className="text-[10px] text-gray-600">Menu</span>
 
-          </button>
+        
         
         </div>
 
